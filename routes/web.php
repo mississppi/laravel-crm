@@ -21,7 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/customers', [CustomerController::class, 'store'])->name('customers.store');  // 顧客情報の保存
     Route::get('/customers/{customer}/edit', [CustomerController::class, 'edit'])->name('customers.edit');  // 編集ページ
     Route::put('/customers/{customer}', [CustomerController::class, 'update'])->name('customers.update');  // 顧客情報の更新
-
+    Route::delete('/customers/{customer}', [CustomerController::class, 'destroy'])->name('customers.destroy');
 
 });
 

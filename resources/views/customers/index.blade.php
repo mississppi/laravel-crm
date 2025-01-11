@@ -27,7 +27,16 @@
                                     <p class="text-gray-600">Address: {{ $customer->address ?? 'N/A' }}</p>
 
                                     <!-- Edit ボタン -->
-                                    <a href="{{ route('customers.edit', $customer->id) }}" class="text-blue-600 hover:text-blue-900">Edit</a>
+                                    <a href="{{ route('customers.edit', $customer->id) }}" class="text-blue-600 hover:text-blue-900">
+                                        Edit
+                                    </a>
+
+                                    <!-- Delete ボタン -->
+                                    <form action="{{ route('customers.destroy', $customer->id) }}" method="POST" class="inline-block ml-4">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="text-red-600 hover:text-red-900">Delete</button>
+                                    </form>
                                 </div>
                             @empty
                                 <p>No customers found.</p>
